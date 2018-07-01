@@ -1,5 +1,5 @@
 Name:    miniflux
-Version: 2.0.8
+Version: 2.0.9
 Release: 1.0
 Summary: Minimalist feed reader
 URL: https://miniflux.net/
