@@ -21,14 +21,14 @@ BuildRequires: systemd
 mkdir -p %{buildroot}/%{_bindir}
 install -p -m 755 %{SOURCE0} %{buildroot}/%{_bindir}
 install -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/miniflux.service
-install -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/miniflux.conf
+install -D -m 600 %{SOURCE2} %{buildroot}%{_sysconfdir}/miniflux.conf
 
 %files
 %defattr(755,root,root)
 %{_bindir}/miniflux
 %defattr(644,root,root)
 %{_unitdir}/miniflux.service
-%defattr(644,root,root)
+%defattr(600,root,root)
 %config(noreplace) %{_sysconfdir}/miniflux.conf
 
 %pre
