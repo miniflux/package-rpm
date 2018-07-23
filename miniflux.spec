@@ -1,8 +1,8 @@
 Name:    miniflux
-Version: 2.0.9
+Version: 2.0.10
 Release: 1.0
 Summary: Minimalist feed reader
-URL: https://miniflux.net/
+URL: https://miniflux.app/
 License: Apache Software License 2.0
 Source0: miniflux
 Source1: miniflux.service
