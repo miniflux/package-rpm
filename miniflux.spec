@@ -1,5 +1,5 @@
 Name:    miniflux
-Version: 2.0.11
+Version: 2.0.12
 Release: 1.0
 Summary: Minimalist feed reader
 URL: https://miniflux.app/
