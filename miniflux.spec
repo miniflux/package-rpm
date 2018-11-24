@@ -1,3 +1,5 @@
+%undefine _disable_source_fetch
+
 Name:    miniflux
 Version: 2.0.12
 Release: 1.0
@@ -7,6 +9,7 @@ License: ASL 2.0
 Source0: miniflux
 Source1: miniflux.service
 Source2: miniflux.conf
+Source3: https://raw.githubusercontent.com/miniflux/miniflux/master/miniflux.1
 BuildRoot: %{_topdir}/BUILD/%{name}-%{version}-%{release}
 BuildArch: x86_64
 Requires(pre): shadow-utils
@@ -18,9 +21,10 @@ BuildRequires: systemd
 %{summary}
 
 %install
-mkdir -p %{buildroot}/%{_bindir}
-install -p -m 755 %{SOURCE0} %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}%{_bindir}
+install -p -m 755 %{SOURCE0} %{buildroot}%{_bindir}
 install -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/miniflux.service
+install -D -m 644 %{SOURCE3} %{buildroot}%{_mandir}/man1/miniflux.1
 install -D -m 600 %{SOURCE2} %{buildroot}%{_sysconfdir}/miniflux.conf
 
 %files
@@ -28,6 +32,7 @@ install -D -m 600 %{SOURCE2} %{buildroot}%{_sysconfdir}/miniflux.conf
 %{_bindir}/miniflux
 %defattr(644,root,root)
 %{_unitdir}/miniflux.service
+%{_mandir}/man1/miniflux.1*
 %defattr(600,root,root)
 %config(noreplace) %{_sysconfdir}/miniflux.conf
 
