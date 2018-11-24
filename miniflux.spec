@@ -3,7 +3,7 @@ Version: 2.0.12
 Release: 1.0
 Summary: Minimalist feed reader
 URL: https://miniflux.app/
-License: Apache Software License 2.0
+License: ASL 2.0
 Source0: miniflux
 Source1: miniflux.service
 Source2: miniflux.conf
