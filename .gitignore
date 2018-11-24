@@ -1,2 +1,6 @@
 *.rpm
 sources/miniflux
+sources/ChangeLog
+sources/LICENSE
+sources/miniflux-linux-amd64
+sources/miniflux.1
