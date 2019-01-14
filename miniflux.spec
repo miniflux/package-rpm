@@ -1,7 +1,7 @@
 %undefine _disable_source_fetch
 
 Name:    miniflux
-Version: 2.0.13
+Version: 2.0.14
 Release: 1.0
 Summary: Minimalist feed reader
 URL: https://miniflux.app/
