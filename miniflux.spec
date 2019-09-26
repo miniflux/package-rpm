@@ -1,9 +1,9 @@
 %undefine _disable_source_fetch
 
 Name:    miniflux
-Version: 2.0.17
+Version: 2.0.18
 Release: 1.0
-Summary: Minimalist feed reader
+Summary: Minimalist and opinionated feed reader
 URL: https://miniflux.app/
 License: ASL 2.0
 Source0: https://github.com/miniflux/miniflux/releases/download/%{version}/miniflux-linux-amd64
