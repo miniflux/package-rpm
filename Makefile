@@ -1,11 +1,16 @@
-.PHONY: clean run package
+DOCKER_IMAGE=miniflux_rpmbuilder
+VERSION=2.0.22
+
+.PHONY: clean package
 
 clean:
-	@ rm -f *.rpm sources/miniflux sources/miniflux.1 sources/miniflux-linux-amd64 sources/LICENSE sources/ChangeLog
-
-run: clean
-	@ docker run -it --rm -v ${PWD}/sources:/root/rpmbuild/SOURCES -v ${PWD}:/root/rpmbuild/RPMS/x86_64 miniflux/rpmbuild bash
+	@ rm -f *.rpm
 
 package: clean
-	@ docker build -t miniflux/rpmbuild .
-	@ docker run --rm -v ${PWD}/sources:/root/rpmbuild/SOURCES -v ${PWD}:/root/rpmbuild/RPMS/x86_64 miniflux/rpmbuild
+	@ docker build \
+		-t $(DOCKER_IMAGE) \
+		--build-arg APP_VERSION=$(VERSION) \
+		.
+	@ docker run --rm \
+		-v ${PWD}:/root/rpmbuild/RPMS/x86_64/ $(DOCKER_IMAGE) \
+		rpmbuild -bb --define "_miniflux_version $(VERSION)" /root/rpmbuild/SPECS/miniflux.spec

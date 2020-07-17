@@ -1,17 +1,17 @@
 %undefine _disable_source_fetch
 
 Name:    miniflux
-Version: 2.0.22
+Version: %{_miniflux_version}
 Release: 1.0
 Summary: Minimalist and opinionated feed reader
 URL: https://miniflux.app/
 License: ASL 2.0
-Source0: https://github.com/miniflux/miniflux/releases/download/%{version}/miniflux-linux-amd64
+Source0: miniflux
 Source1: miniflux.service
 Source2: miniflux.conf
-Source3: https://raw.githubusercontent.com/miniflux/miniflux/master/miniflux.1
-Source4: https://raw.githubusercontent.com/miniflux/miniflux/%{version}/LICENSE
-Source5: https://raw.githubusercontent.com/miniflux/miniflux/%{version}/ChangeLog
+Source3: miniflux.1
+Source4: LICENSE
+Source5: ChangeLog
 BuildRoot: %{_topdir}/BUILD/%{name}-%{version}-%{release}
 BuildArch: x86_64
 Requires(pre): shadow-utils
@@ -38,8 +38,7 @@ install -D -m 644 %{SOURCE5} %{buildroot}%{_docdir}/miniflux/ChangeLog
 %defattr(644,root,root)
 %{_unitdir}/miniflux.service
 %{_mandir}/man1/miniflux.1*
-%{_docdir}/miniflux/LICENSE
-%{_docdir}/miniflux/ChangeLog
+%{_docdir}/miniflux/*
 %defattr(600,root,root)
 %config(noreplace) %{_sysconfdir}/miniflux.conf
 
